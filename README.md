@@ -4,7 +4,7 @@ A lightweight, open source, and free to use javascript library made for the unbl
 ## How to use
 Put the Library url in your head tag
 <script src="https://gitloaf.com/cdn/albibos/gallium/main/library.js"></script>
-https://cdn.jsdelivr.net/gh/albibos/gallium@main/library.js
+<script src="https://cdn.jsdelivr.net/gh/albibos/gallium@main/library.js"></script>
 Functions:
 
 Gallium.cloak(url) - opens an about:blank tab using the specified url parameter
