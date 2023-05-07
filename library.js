@@ -35,7 +35,7 @@ var Liberium = {
     this.cloak(url);
   },
  gopen: function(url, param, id) {
-  var fullUrl = window.location.origin + url + "?" + param + "=" + id;
+  var fullUrl = window.location.origin + "/" + url + "?" + param + "=" + id;
   window.location.href = fullUrl;
 },
 };
