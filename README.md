@@ -8,4 +8,9 @@ Put the Library url in your head tag
 Functions:
 
 Liberium.cloak(url) - opens an about:blank tab using the specified url parameter
+
 Liberium.blob(url) - opens a blob: url using the specified url parameter
+
+Liberium.copen(id) - opens an about:blank tab with a 3kh0 assets game loaded via the id provided
+
+Liberium.gopen(src, param, id) - redirects to a page of your choice with a url param of your choice and a game id of your choice (only use if you know what you're doing)
