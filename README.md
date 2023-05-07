@@ -26,3 +26,7 @@ In the works:
 Liberium.g404(key) - overlays the google 404 page over your page which can be made invisible by clicking the specified key
 
 Liberium.gopen(src, param, id) - redirects to a page of your choice with a url param of your choice and a game id of your choice (only use if you know what you're doing)
+
+## Credits
+3kh0 - 3kh0 assets
+when more people need to be credited theyll be listed here
