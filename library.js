@@ -135,5 +135,5 @@ var Liberium = {
                 }
             });
         };
-
+},
         window.Liberium = Liberium;
