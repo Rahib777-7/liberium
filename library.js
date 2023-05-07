@@ -58,91 +58,53 @@ var Liberium = {
     }
   },
   g404: function(key) {
-  var htmlContent = `
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
-      <title>Error 404 (Not Found)!!1</title>
-      <style>
-        * {
-          visibility: hidden;
-        }
+    var overlayDiv = document.createElement("div");
+    overlayDiv.style.position = "fixed";
+    overlayDiv.style.top = "0";
+    overlayDiv.style.left = "0";
+    overlayDiv.style.width = "100%";
+    overlayDiv.style.height = "100%";
+    overlayDiv.style.background = "#fff";
+    overlayDiv.style.zIndex = "9999999";
 
-        html,
-        code {
-          font: 15px/22px arial, sans-serif;
-        }
+    var overlayContent = `
+      <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+        <title>Error 404 (Not Found)!!1</title>
+        <style>
+          *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+        </style>
+      </head>
+      <body>
+        <a href="//www.google.com/">
+          <span id="logo" aria-label="Google"></span>
+        </a>
+        <p>
+          <b>404.</b> <ins>That’s an error.</ins>
+        </p>
+        <p>
+          The requested URL <code></code> was not found on this server. <ins>That’s all we know.</ins>
+        </p>
+      </body>
+      </html>
+    `;
 
-        html {
-          background: #fff;
-          color: #222;
-        }
+    overlayDiv.innerHTML = overlayContent;
 
-        body {
-          margin: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 100vh;
-          visibility: visible;
-        }
+    var handleKeyPress = function(event) {
+      var keyCode = event.keyCode || event.which;
+      var key = String.fromCharCode(keyCode).toLowerCase();
+      if (key === key.toLowerCase()) {
+        overlayDiv.style.display = "none";
+        document.removeEventListener("keypress", handleKeyPress);
+      }
+    };
 
-        #overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.7);
-          z-index: 9999;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        #overlay-content {
-          text-align: center;
-          color: #fff;
-        }
-
-        #overlay-logo {
-          width: 150px;
-          height: 54px;
-          background: url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;
-          background-size: contain;
-        }
-
-        #overlay-message {
-          margin-top: 30px;
-          font-weight: bold;
-          font-size: 18px;
-        }
-      </style>
-    </head>
-    <body>
-      <div id="overlay">
-        <div id="overlay-content">
-          <div id="overlay-logo" aria-label="Google"></div>
-          <p id="overlay-message"><b>404.</b> <ins>That’s an error.</ins></p>
-          <p>The requested URL <code></code> was not found on this server. <ins>That’s all we know.</ins></p>
-        </div>
-      </div>
-    </body>
-  </html>
-  `;
-
-  var overlay = document.createElement("div");
-  overlay.innerHTML = htmlContent;
-
-  document.body.appendChild(overlay);
-
-  document.addEventListener("keydown", function(event) {
-    if (event.key === key) {
-      document.body.removeChild(overlay);
-    }
-  });
-},
+    document.body.appendChild(overlayDiv);
+    document.addEventListener("keypress", handleKeyPress);
+  },
 };
 
 window.Liberium = Liberium;
