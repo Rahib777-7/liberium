@@ -57,7 +57,7 @@ var Liberium = {
       document.head.appendChild(favicon);
     }
   },
-  404: function(key) {
+  g404: function(key) {
     var htmlContent = `
       <html lang="en">
       <head>
