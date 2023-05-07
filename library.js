@@ -16,26 +16,8 @@ var Gallium = {
     win.document.body.style.height = '100vh';
   },
   blob: function(url) {
-    return new Promise(function(resolve, reject) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', url, true);
-      xhr.responseType = 'blob';
-
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          var blobUrl = URL.createObjectURL(xhr.response);
-          resolve(blobUrl);
-        } else {
-          reject(new Error('Failed to convert URL to blob.'));
-        }
-      };
-
-      xhr.onerror = function() {
-        reject(new Error('Failed to convert URL to blob.'));
-      };
-
-      xhr.send();
-    });
+    var page = new Blob([`<iframe style="height:100%; width: 100%; border: none; position: fixed; top: 0; right: 0; left: 0; bottom: 0; border: none" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation" src="${url}"></iframe>`], { type: "text/html" });
+    window.open(URL.createObjectURL(page));
   }
 };
 
