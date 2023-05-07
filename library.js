@@ -66,8 +66,7 @@ var Liberium = {
       <title>Error 404 (Not Found)!!1</title>
       <style>
         * {
-          margin: 0;
-          padding: 0;
+          visibility: hidden;
         }
 
         html,
@@ -78,7 +77,6 @@ var Liberium = {
         html {
           background: #fff;
           color: #222;
-          padding: 15px;
         }
 
         body {
@@ -87,6 +85,7 @@ var Liberium = {
           align-items: center;
           justify-content: center;
           min-height: 100vh;
+          visibility: visible;
         }
 
         #overlay {
@@ -136,13 +135,11 @@ var Liberium = {
   var overlay = document.createElement("div");
   overlay.innerHTML = htmlContent;
 
-  document.body.style.overflow = "hidden";
   document.body.appendChild(overlay);
 
   document.addEventListener("keydown", function(event) {
     if (event.key === key) {
       document.body.removeChild(overlay);
-      document.body.style.overflow = "visible";
     }
   });
 },
