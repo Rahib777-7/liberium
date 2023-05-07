@@ -60,10 +60,10 @@ var Liberium = {
   g404: function(key) {
     var overlayDiv = document.createElement("div");
     overlayDiv.style.position = "fixed";
-    overlayDiv.style.top = "0";
+    overlayDiv.style.top = "50%";
     overlayDiv.style.left = "0";
     overlayDiv.style.width = "100%";
-    overlayDiv.style.height = "100%";
+    overlayDiv.style.transform = "translateY(-50%)";
     overlayDiv.style.background = "#fff";
     overlayDiv.style.zIndex = "9999999";
 
@@ -97,7 +97,7 @@ var Liberium = {
       var keyCode = event.keyCode || event.which;
       var key = String.fromCharCode(keyCode).toLowerCase();
       if (key === key.toLowerCase()) {
-        overlayDiv.style.display = "none";
+        overlayDiv.parentNode.removeChild(overlayDiv);
         document.removeEventListener("keypress", handleKeyPress);
       }
     };
