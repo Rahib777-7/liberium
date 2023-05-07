@@ -1,6 +1,6 @@
 # liberium
 A lightweight, open source, and free to use javascript library made for the unblocking community.
-
+Updates will keep coming, please suggest things to add or open pull requests with new features!
 ## How to use
 Put the Library url in your head tag
 <script src="https://gitloaf.com/cdn/albibos/liberium/main/library.js"></script>
