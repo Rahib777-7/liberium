@@ -42,6 +42,9 @@ var Liberium = {
   var fullUrl = window.location.origin + "/" + cleanUrl + "?" + cleanParam + "=" + cleanId;
   window.location.href = fullUrl;
 },
+redirect: function(url) {
+    window.location.href = url;
+  },
 };
 
 window.Liberium = Liberium;
