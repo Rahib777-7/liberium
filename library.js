@@ -58,80 +58,95 @@ var Liberium = {
     }
   },
   g404: function(key) {
-    var htmlContent = `
-      <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
-        <title>Error 404 (Not Found)!!1</title>
-        <style>
-          /* CSS styles for the error page content */
-          * {
-            margin: 0;
-            padding: 0
-          }
+  var htmlContent = `
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+      <title>Error 404 (Not Found)!!1</title>
+      <style>
+        /* CSS styles for the error page content */
+        * {
+          margin: 0;
+          padding: 0;
+        }
 
-          html,
-          code {
-            font: 15px/22px arial, sans-serif
-          }
+        html,
+        code {
+          font: 15px/22px arial, sans-serif;
+        }
 
-          html {
-            background: #fff;
-            color: #222;
-            padding: 15px
-          }
+        html {
+          background: #fff;
+          color: #222;
+          padding: 15px;
+        }
 
-          body {
-            margin: 7% auto 0;
-            max-width: 390px;
-            min-height: 180px;
-            padding: 30px 0 15px
-          }
-*>body {
-            background: url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;
-            padding-right: 205px
-          }
+        body {
+          margin: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+        }
 
-          p {
-            margin: 11px 0 22px;
-            overflow: hidden
-          }
+        #overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
-          ins {
-            color: #777;
-            text-decoration: none
-          }
+        #overlay-content {
+          text-align: center;
+          color: #fff;
+        }
 
-          a img {
-            border: 0
-          }
-        </style>
-      </head>
-      <body>
-        <a href="//www.google.com/"><span id="logo" aria-label="Google"></span></a>
-        <p><b>404.</b> <ins>That’s an error.</ins></p>
-        <p>The requested URL <code></code> was not found on this server. <ins>That’s all we know.</ins></p>
-      </body>
-    </html>
-    `;
-    var overlay = document.createElement("div");
-    overlay.style.position = "fixed";
-    overlay.style.top = "0";
-    overlay.style.left = "0";
-    overlay.style.width = "100%";
-    overlay.style.height = "100%";
-    overlay.style.zIndex = "9999";
-    overlay.innerHTML = htmlContent;
+        #overlay-logo {
+          width: 150px;
+          height: 54px;
+          background: url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;
+          background-size: contain;
+        }
 
-    document.body.appendChild(overlay);
+        #overlay-message {
+          margin-top: 30px;
+          font-weight: bold;
+          font-size: 18px;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="overlay">
+        <div id="overlay-content">
+          <div id="overlay-logo" aria-label="Google"></div>
+          <p id="overlay-message"><b>404.</b> <ins>That’s an error.</ins></p>
+          <p>The requested URL <code></code> was not found on this server. <ins>That’s all we know.</ins></p>
+        </div>
+      </div>
+    </body>
+  </html>
+  `;
 
-    document.addEventListener("keydown", function(event) {
-      if (event.key === key) {
-        document.body.removeChild(overlay);
-      }
-    });
-  },
+  var overlay = document.createElement("div");
+  overlay.innerHTML = htmlContent;
+
+  document.body.style.overflow = "hidden";
+  document.body.appendChild(overlay);
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === key) {
+      document.body.removeChild(overlay);
+      document.body.style.overflow = "visible";
+    }
+  });
+},
 };
 
 window.Liberium = Liberium;
