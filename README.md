@@ -2,8 +2,8 @@
 A lightweight, open source, and free to use javascript library made for the unblocking community.
 
 ## How to use
-Put the Library url in your <head></head>
-https://gitloaf.com/cdn/albibos/gallium/main/library.js
+Put the Library url in your head tag
+<script src="https://gitloaf.com/cdn/albibos/gallium/main/library.js"></script>
 https://cdn.jsdelivr.net/gh/albibos/gallium@main/library.js
 Functions:
 
