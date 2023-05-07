@@ -34,6 +34,10 @@ var Liberium = {
     var url = `https://raw.githack.com/3kh0/3kh0-Assets/main/${id}/index.html`;
     this.cloak(url);
   },
+  gopen: function(url, param, id) {
+  var fullUrl = window.location.origin + url + "?" + param + "=" + id;
+  this.cloak(fullUrl);
+},
 };
 
 window.Liberium = Liberium;
