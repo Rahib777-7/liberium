@@ -45,6 +45,18 @@ var Liberium = {
 redirect: function(url) {
     window.location.href = url;
   },
+  tabcloak: function(title, faviconurl) {
+    if (title) {
+      document.title = title;
+    }
+    if (faviconurl) {
+      var favicon = document.querySelector("link[rel='icon']") || document.createElement("link");
+      favicon.type = "image/x-icon";
+      favicon.rel = "icon";
+      favicon.href = faviconurl;
+      document.head.appendChild(favicon);
+    }
+  },
 };
 
 window.Liberium = Liberium;
