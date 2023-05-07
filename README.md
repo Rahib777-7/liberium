@@ -4,7 +4,9 @@ Updates will keep coming, please suggest things to add or open pull requests wit
 ## How to use
 Put the Library url in your head tag
 <script src="https://gitloaf.com/cdn/albibos/liberium/main/library.js"></script>
+
 or (you can use any cdn, it doesnt matter)
+
 <script src="https://cdn.jsdelivr.net/gh/albibos/liberium@main/library.js"></script>
 Functions:
 
