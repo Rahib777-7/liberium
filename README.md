@@ -20,7 +20,9 @@ Liberium.redirect(url) - redirects the user to the specified url
 
 Liberium.tabcloak(title, faviconurl) - sets the title and favicon based on the specified params. Still works if only title or only faviconurl are set, just do (null, faviconurl) or (title, null)
 
+In the works:
+
+
 Liberium.g404(key) - overlays the google 404 page over your page which can be made invisible by clicking the specified key
 
-In the works:
 Liberium.gopen(src, param, id) - redirects to a page of your choice with a url param of your choice and a game id of your choice (only use if you know what you're doing)
