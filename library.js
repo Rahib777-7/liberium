@@ -65,7 +65,6 @@ var Liberium = {
       <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
       <title>Error 404 (Not Found)!!1</title>
       <style>
-        /* CSS styles for the error page content */
         * {
           margin: 0;
           padding: 0;
