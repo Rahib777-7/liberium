@@ -1,4 +1,4 @@
-var Gallium = {
+var Liberium = {
   cloak: function(url) {
     var win = window.open();
     var f = win.document.createElement("iframe");
@@ -36,4 +36,4 @@ var Gallium = {
   },
 };
 
-window.Gallium = Gallium;
+window.Liberium = Liberium;
